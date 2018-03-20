@@ -1,0 +1,32 @@
+package com.practice.pyusha.arrays;
+
+public class ShellSort {
+	public static void main(String args[]) {                                      //Time Complexity: O(n^2)
+		int[] array = new int[] { 3, 6, 5, 23, 10 };
+		ShellSort(array);
+	}
+
+	public static void ShellSort(int[] arr) {
+		for (int incr = arr.length / 2; incr > 0; incr /= 2) {
+			for (int i = incr; i < arr.length; i++) {
+				int temp = arr[i];
+				int j = 0;
+				for (j = i; j >= incr; j -= incr) {
+					if (temp < arr[j - incr]) {
+						arr[j] = arr[j - incr];
+					} else {
+						break;
+					}
+				}
+				arr[j] = temp;
+			}
+		}
+		PrintArray(arr);
+	}
+
+	public static void PrintArray(int[] arr) {
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");
+		}
+	}
+}
